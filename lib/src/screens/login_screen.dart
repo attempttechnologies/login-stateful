@@ -13,15 +13,40 @@ class _LoginScreenState extends State<LoginScreen> {
       child: Form(
         child: Column(
           children: [
-            TextFormField(),
-            TextFormField(),
-            RaisedButton(
-              onPressed: () {},
-              child: Text('Login'),
-            ),
+            this._emailField(),
+            this._passwordField(),
+            Container(margin: EdgeInsets.only(bottom: 25.0)),
+            this._submitButton(),
           ],
         ),
       ),
+    );
+  }
+
+  TextFormField _emailField() {
+    return TextFormField(
+      decoration: InputDecoration(
+        labelText: 'Email Address',
+        hintText: 'you@example.com',
+      ),
+      keyboardType: TextInputType.emailAddress,
+    );
+  }
+
+  TextFormField _passwordField() {
+    return TextFormField(
+      decoration: InputDecoration(
+        labelText: 'Password',
+      ),
+      obscureText: true,
+    );
+  }
+
+  RaisedButton _submitButton() {
+    return RaisedButton(
+      color: Colors.blue,
+      onPressed: () {},
+      child: Text('Login'),
     );
   }
 }
